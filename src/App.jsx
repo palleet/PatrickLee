@@ -184,6 +184,9 @@ function App() {
         </ul>
 
         <h3>Resume Builder</h3>
+        <a href="https://resume-pal.netlify.app/">
+          Full Project Page
+        </a>
         <ul>
           <li>
             Developed a responsive resume generator using React, allowing users
