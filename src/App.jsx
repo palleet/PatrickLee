@@ -1,27 +1,22 @@
 import { useState } from "react";
 
-import headshot from "./assets/images/header_headshot.jpeg"
-import splatDemo from "./assets/images/examples/splat_painter_demo.gif"
-import bunnyDemo1 from "./assets/images/examples/bunny_depth_1.png"
-import bunnyDemo5 from "./assets/images/examples/bunny_depth_5.png"
-import dragonDemo from "./assets/images/examples/dragon_rate.png"
-import cpuDiagram from "./assets/images/examples/RISC-V_diagram.png"
+import headshot from "./assets/images/header_headshot.jpeg";
+import splatDemo from "./assets/images/examples/splat_painter_demo.gif";
+import bunnyDemo1 from "./assets/images/examples/bunny_depth_1.png";
+import bunnyDemo5 from "./assets/images/examples/bunny_depth_5.png";
+import dragonDemo from "./assets/images/examples/dragon_rate.png";
+import cpuDiagram from "./assets/images/examples/RISC-V_diagram.png";
 
 import "./Portfolio.css";
 
 function App() {
-
   return (
     <>
       <div className="hero-image">
         <div className="hero-text">
           <h1>Patrick Lee</h1>
           <figure>
-            <img
-              src={headshot}
-              alt="Patrick Lee"
-              className="headshot"
-            />
+            <img src={headshot} alt="Patrick Lee" className="headshot" />
           </figure>
           <div
             className="contact-info"
@@ -78,7 +73,11 @@ function App() {
         <h2>Projects</h2>
 
         <h3>Splat Painter</h3>
-        <a href="https://lionelvlv.github.io/cs184splatpainter/finalreport.html">
+        <a
+          href="https://lionelvlv.github.io/cs184splatpainter/finalreport.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Full Project Page
         </a>
         <ul>
@@ -121,7 +120,11 @@ function App() {
         </a>
 
         <h3>Path Tracer</h3>
-        <a href="https://cal-cs184-student.github.io/hw-webpages-liokaiser-writeup/hw3/index.html">
+        <a
+          href="https://cal-cs184-student.github.io/hw-webpages-liokaiser-writeup/hw3/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Full Project Page
         </a>
         <ul>
@@ -184,7 +187,11 @@ function App() {
         </ul>
 
         <h3>Resume Builder</h3>
-        <a href="https://resume-pal.netlify.app/">
+        <a
+          href="https://resume-pal.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Full Project Page
         </a>
         <ul>
