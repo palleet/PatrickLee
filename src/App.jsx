@@ -12,22 +12,17 @@ import neario1 from "./assets/images/examples/neario_iphone16_1.png"
 import neario2 from "./assets/images/examples/neario_iphone16_2.png" 
 import neario3 from "./assets/images/examples/neario_iphone16_3.png" 
 import neario4 from "./assets/images/examples/neario_iphone16_4.png" 
+import LandingScene from './LandingScene.jsx'
 
 import "./Portfolio.css";
 
-function App() {
-
-  return (
-    <>
-      <div className="hero-image">
+function Hero() {
+  return (<>
+    <div className="hero-image">
         <div className="hero-text">
           <h1>Patrick Lee</h1>
           <figure>
-            <img
-              src={headshot}
-              alt="Patrick Lee"
-              className="headshot"
-            />
+            <img src={headshot} alt="Patrick Lee" className="headshot" />
           </figure>
           <div
             className="contact-info"
@@ -64,6 +59,27 @@ function App() {
           </div>
         </div>
       </div>
+  </>);
+}
+
+function App() {
+  const [isChecked, setIsChecked] = useState(true);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+  };
+
+  return (
+    <>
+      <label id="hero-toggle">
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleToggle}
+        />
+        <b>3D</b>
+      </label>
+      {isChecked ? <LandingScene /> : <Hero />}
       <div className="container">
         <h2>About Me</h2>
         <p>
@@ -84,7 +100,11 @@ function App() {
         <h2>Projects</h2>
 
         <h3>Splat Painter</h3>
-        <a href="https://lionelvlv.github.io/cs184splatpainter/finalreport.html">
+        <a
+          href="https://lionelvlv.github.io/cs184splatpainter/finalreport.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Full Project Page
         </a>
         <ul>
@@ -199,7 +219,11 @@ function App() {
         </a>
 
         <h3>Path Tracer</h3>
-        <a href="https://cal-cs184-student.github.io/hw-webpages-liokaiser-writeup/hw3/index.html">
+        <a
+          href="https://cal-cs184-student.github.io/hw-webpages-liokaiser-writeup/hw3/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Full Project Page
         </a>
         <ul>
@@ -262,7 +286,11 @@ function App() {
         </ul>
 
         <h3>Resume Builder</h3>
-        <a href="https://resume-pal.netlify.app/">
+        <a
+          href="https://resume-pal.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Full Project Page
         </a>
         <ul>
@@ -283,6 +311,33 @@ function App() {
           </li>
         </ul>
       </div>
+      <footer>
+        <h2>Contact</h2>
+        <a
+          href="mailto:patl@berkeley.edu"
+          // style={{ color: "#000", margin: "0 10px" }}
+        >
+          Email
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://www.linkedin.com/in/patricklee2003/"
+          target="_blank"
+          rel="noopener noreferrer"
+          // style={{ color: "#000", margin: "0 10px" }}
+        >
+          LinkedIn
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://github.com/palleet"
+          target="_blank"
+          rel="noopener noreferrer"
+          // style={{ color: "#000",  }}
+        >
+          GitHub
+        </a>
+      </footer>
     </>
   );
 }
