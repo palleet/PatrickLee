@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
-import { Text3D, Float,Clouds, Cloud, Sky, OrbitControls, Center, useTexture  } from '@react-three/drei' 
+import { Text3D, Float, OrbitControls, Center, useTexture  } from '@react-three/drei' 
 import * as THREE from "three"
 import { Physics } from "@react-three/cannon";
 import { TextureLoader } from 'three'
+import { useMediaQuery } from 'react-responsive'
 
 import "./SceneStyle.css";
 
@@ -60,9 +61,57 @@ function LinkBox(props) {
   )
 }
 
+function BigName() {
+  return( <>
+    <Text3D
+      position={[0, 1, 0]}
+      font={"/Inter_bold.json"}
+      curveSegments={24}
+      brevelSegments={1}
+      bevelEnabled
+      bevelSize={0.03}
+      bevelThickness={0.08}
+      height={0.2}
+      letterSpacing={0.2}
+    >
+      {`Patrick Lee`}
+      <meshPhongMaterial color={'#212121'}/>
+    </Text3D>
+    <LinkBox position={[0.5, 0, 0]} texture="/github-box.png" link="https://github.com/palleet" />
+    <LinkBox position={[2, 0, 0]} texture="/ln-box.png" link="https://www.linkedin.com/in/patricklee2003/" />
+    <LinkBox position={[3.5, 0, 0]} texture="/mail-box.png" link="mailto:patl@berkeley.edu" />
+  </>);
+}
+
+function SmallName() {
+  return( <>
+    <Text3D
+      position={[1.5, 1, 0]}
+      font={"/Inter_bold.json"}
+      curveSegments={24}
+      brevelSegments={1}
+      bevelEnabled
+      bevelSize={0.03}
+      bevelThickness={0.08}
+      height={0.2}
+      lineHeight={0.5}
+      letterSpacing={0.2}
+    >
+      {`Patrick\nLee`}
+      <meshPhongMaterial color={'#212121'}/>
+    </Text3D>
+
+    <LinkBox position={[2.5, -1, 0]} texture="/github-box.png" link="https://github.com/palleet" />
+    <LinkBox position={[4, -1, 0]} texture="/ln-box.png" link="https://www.linkedin.com/in/patricklee2003/" />
+    <LinkBox position={[5.5, -1, 0]} texture="/mail-box.png" link="mailto:patl@berkeley.edu" />
+  </>);
+}
+
 function LandingScene() {
   // const texture = useTexture('/text_gradient.jpg')
   // const colorMap = useLoader(TextureLoader, '/dots.jpg')
+
+  const isMobile = useMediaQuery({ maxWidth: 850 });
 
   return (
     <>
@@ -74,27 +123,8 @@ function LandingScene() {
           <Center scale={[0.9, 1, 1]}>
             <Physics gravity={10}>
               <Float speed={1}>
-                <Text3D
-                  position={[0, 1, 0]}
-                  font={"/Inter_bold.json"}
-                  curveSegments={24}
-                  brevelSegments={1}
-                  bevelEnabled
-                  bevelSize={0.03}
-                  bevelThickness={0.08}
-                  height={0.2}
-                  // lineHeight={0.9}
-                  letterSpacing={0.2}
-                >
-                  {`Patrick Lee`}
-                  {/* <meshPhongMaterial map={colorMap}/> */}
-                  {/* <meshPhongMaterial color={'#f0f0f0'}/> */}
-                  <meshPhongMaterial color={'#212121'}/>
-                  {/* <meshPhongMaterial color={'#577399'}/> */}
-                </Text3D>
-                <LinkBox position={[0, 0, 0]} texture="/github-box.png" link="https://github.com/palleet" />
-                <LinkBox position={[1.5, 0, 0]} texture="/ln-box.png" link="https://www.linkedin.com/in/patricklee2003/" />
-                <LinkBox position={[3, 0, 0]} texture="/mail-box.png" link="mailto:patl@berkeley.edu" />
+                {isMobile ? <SmallName /> : <BigName />}
+                
               </Float>
             </Physics>
           </Center>
@@ -107,7 +137,7 @@ function LandingScene() {
           {/* <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={3} /> */}
           <pointLight position={[-10, -10, 10]} decay={0} intensity={10} />
           <pointLight position={[-10, -10, -10]} decay={0} intensity={10} />
-          <OrbitControls />
+          <OrbitControls enableZoom={false} />
         </Canvas>
       </div>
     </>

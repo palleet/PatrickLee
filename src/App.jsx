@@ -16,11 +16,9 @@ import LandingScene from './LandingScene.jsx'
 
 import "./Portfolio.css";
 
-function App() {
-  return (
-    <>
-      <LandingScene />
-      {/* <div className="hero-image">
+function Hero() {
+  return (<>
+    <div className="hero-image">
         <div className="hero-text">
           <h1>Patrick Lee</h1>
           <figure>
@@ -60,8 +58,28 @@ function App() {
             </a>
           </div>
         </div>
-      </div> */}
+      </div>
+  </>);
+}
 
+function App() {
+  const [isChecked, setIsChecked] = useState(true);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+  };
+
+  return (
+    <>
+      <label id="hero-toggle">
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleToggle}
+        />
+        <b>3D</b>
+      </label>
+      {isChecked ? <LandingScene /> : <Hero />}
       <div className="container">
         <h2>About Me</h2>
         <p>
@@ -293,6 +311,33 @@ function App() {
           </li>
         </ul>
       </div>
+      <footer>
+        <h2>Contact</h2>
+        <a
+          href="mailto:patl@berkeley.edu"
+          // style={{ color: "#000", margin: "0 10px" }}
+        >
+          Email
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://www.linkedin.com/in/patricklee2003/"
+          target="_blank"
+          rel="noopener noreferrer"
+          // style={{ color: "#000", margin: "0 10px" }}
+        >
+          LinkedIn
+        </a>{" "}
+        |{" "}
+        <a
+          href="https://github.com/palleet"
+          target="_blank"
+          rel="noopener noreferrer"
+          // style={{ color: "#000",  }}
+        >
+          GitHub
+        </a>
+      </footer>
     </>
   );
 }
