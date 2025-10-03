@@ -17,28 +17,43 @@ function LinkBox(props) {
   // Load texture if provided
   const texture = props.texture ? useTexture(props.texture) : null
   
-  // Subscribe this component to the render-loop, rotate the mesh every frame
-  // useFrame((state, delta) => (ref.current.rotation.x += delta))
+  const primary = 'white'
+  const secondary = 'hotpink'
   
   // Create materials array - one for each face of the cube
   const materials = [
-    new THREE.MeshStandardMaterial({ color: hovered ? 'hotpink' : 'orange' }), // right
-    new THREE.MeshStandardMaterial({ color: hovered ? 'hotpink' : 'orange' }), // left
-    new THREE.MeshStandardMaterial({ color: hovered ? 'hotpink' : 'orange' }), // top
-    new THREE.MeshStandardMaterial({ color: hovered ? 'hotpink' : 'orange' }), // bottom
-    new THREE.MeshStandardMaterial({ map: texture, color: hovered ? 'hotpink' : 'orange' }), // front (textured face)
-    new THREE.MeshStandardMaterial({ color: hovered ? 'hotpink' : 'orange' }), // back
+    new THREE.MeshStandardMaterial({ color: hovered ? secondary : primary }), // right
+    new THREE.MeshStandardMaterial({ color: hovered ? secondary : primary }), // left
+    new THREE.MeshStandardMaterial({ color: hovered ? secondary : primary }), // top
+    new THREE.MeshStandardMaterial({ color: hovered ? secondary : primary }), // bottom
+    new THREE.MeshStandardMaterial({ map: texture, color: hovered ? secondary : primary }), // front (textured face)
+    new THREE.MeshStandardMaterial({ color: hovered ? secondary : primary }) // back
   ]
+
+  const handleOpenLink = () => {
+    window.open(props.link, '_blank', 'noopener');
+  };
+
+  const hoverStyle = {
+    cursor: 'pointer', // Or any other valid CSS cursor value like 'grab', 'help', 'crosshair', etc.
+  };
   
   // Return the view, these are regular Threejs elements expressed in JSX
   return (
-    <mesh
+    <mesh 
       {...props}
       ref={ref}
-      scale={clicked ? 1.5 : 1}
-      onClick={(event) => click(!clicked)}
-      onPointerOver={(event) => (event.stopPropagation(), hover(true))}
-      onPointerOut={(event) => hover(false)}>
+      scale={hovered ? 1.1 : 1}
+      onClick={handleOpenLink}
+      onPointerOver={(event) => {
+        event.stopPropagation();
+        hover(true);
+        document.body.style.cursor = 'pointer';
+      }}
+      onPointerOut={(event) => {
+        hover(false);
+        document.body.style.cursor = 'default';
+      }}>
       <boxGeometry args={[1, 1, 1]} />
       <primitive object={materials} attach="material" />
     </mesh>
@@ -53,37 +68,31 @@ function LandingScene() {
     <>
       <div id="canvas-container">
         <Canvas>
-          <color attach="background" args={['#fdffb6']} />
-          
-          {/* <mesh>
-            <torusKnotGeometry args={[1, 0.4, 200, 50]} />
-            <meshPhongMaterial />
-          </mesh> */}
+          <color attach="background" args={['#f0f0f0']} />
+          {/* <color attach="background" args={['#fdffb6']} /> */}
           
           <Center scale={[0.9, 1, 1]}>
             <Physics gravity={10}>
               <Float speed={1}>
                 <Text3D
                   position={[0, 1, 0]}
-                  // scale={[-1, 1, 1]}
-                  // ref={ref}
-                  // size={w / 9}
-                  // maxWidth={[-w / 5, -h * 2, 3]}
                   font={"/Inter_bold.json"}
                   curveSegments={24}
                   brevelSegments={1}
                   bevelEnabled
                   bevelSize={0.03}
-                  // bevelThickness={0.03}
+                  bevelThickness={0.08}
                   height={0.2}
                   // lineHeight={0.9}
                   letterSpacing={0.2}
                 >
                   {`Patrick Lee`}
                   {/* <meshPhongMaterial map={colorMap}/> */}
-                  <meshPhongMaterial color={'#577399'}/>
+                  {/* <meshPhongMaterial color={'#f0f0f0'}/> */}
+                  <meshPhongMaterial color={'#212121'}/>
+                  {/* <meshPhongMaterial color={'#577399'}/> */}
                 </Text3D>
-                <LinkBox position={[0, 0, 0]} texture="/github-mark-white.png" />
+                <LinkBox position={[0, 0, 0]} texture="/github-mark.png" link="https://github.com/palleet" />
               </Float>
             </Physics>
           </Center>
