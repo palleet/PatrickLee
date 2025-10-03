@@ -92,7 +92,9 @@ function LandingScene() {
                   <meshPhongMaterial color={'#212121'}/>
                   {/* <meshPhongMaterial color={'#577399'}/> */}
                 </Text3D>
-                <LinkBox position={[0, 0, 0]} texture="/github-mark.png" link="https://github.com/palleet" />
+                <LinkBox position={[0, 0, 0]} texture="/github-box.png" link="https://github.com/palleet" />
+                <LinkBox position={[1.5, 0, 0]} texture="/ln-box.png" link="https://www.linkedin.com/in/patricklee2003/" />
+                <LinkBox position={[3, 0, 0]} texture="/mail-box.png" link="mailto:patl@berkeley.edu" />
               </Float>
             </Physics>
           </Center>
