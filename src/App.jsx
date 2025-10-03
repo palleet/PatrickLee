@@ -12,13 +12,15 @@ import neario1 from "./assets/images/examples/neario_iphone16_1.png"
 import neario2 from "./assets/images/examples/neario_iphone16_2.png" 
 import neario3 from "./assets/images/examples/neario_iphone16_3.png" 
 import neario4 from "./assets/images/examples/neario_iphone16_4.png" 
+import LandingScene from './LandingScene.jsx'
 
 import "./Portfolio.css";
 
 function App() {
   return (
     <>
-      <div className="hero-image">
+      <LandingScene />
+      {/* <div className="hero-image">
         <div className="hero-text">
           <h1>Patrick Lee</h1>
           <figure>
@@ -58,7 +60,8 @@ function App() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
+
       <div className="container">
         <h2>About Me</h2>
         <p>

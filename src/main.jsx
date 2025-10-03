@@ -5,7 +5,8 @@ import LandingScene from './LandingScene.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <LandingScene />
+    {/* <LandingScene /> */}
+    <App />
     
   </StrictMode>,
 )
