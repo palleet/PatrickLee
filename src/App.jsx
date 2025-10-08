@@ -1,24 +1,27 @@
 import { useState } from "react";
 
-import headshot from "./assets/images/header_headshot.jpeg"
-import splatDemo from "./assets/images/examples/splat_painter_demo.gif"
-import bunnyDemo1 from "./assets/images/examples/bunny_depth_1.png"
-import bunnyDemo5 from "./assets/images/examples/bunny_depth_5.png"
-import dragonDemo from "./assets/images/examples/dragon_rate.png"
-import cpuDiagram from "./assets/images/examples/RISC-V_diagram.png"
-import nearioIcon from "./assets/images/examples/Neario-Default-Icon.png"
-import nearioDarkIcon from "./assets/images/examples/Neario-Dark-Icon.png"
-import neario1 from "./assets/images/examples/neario_iphone16_1.png"
-import neario2 from "./assets/images/examples/neario_iphone16_2.png" 
-import neario3 from "./assets/images/examples/neario_iphone16_3.png" 
-import neario4 from "./assets/images/examples/neario_iphone16_4.png" 
-import LandingScene from './LandingScene.jsx'
+import headshot from "./assets/images/header_headshot.jpeg";
+import splatDemo from "./assets/images/examples/splat_painter_demo.gif";
+import bunnyDemo1 from "./assets/images/examples/bunny_depth_1.png";
+import bunnyDemo5 from "./assets/images/examples/bunny_depth_5.png";
+import dragonDemo from "./assets/images/examples/dragon_rate.png";
+import cpuDiagram from "./assets/images/examples/RISC-V_diagram.png";
+import nearioIcon from "./assets/images/examples/Neario-Default-Icon.png";
+import nearioDarkIcon from "./assets/images/examples/Neario-Dark-Icon.png";
+import neario1 from "./assets/images/examples/neario_iphone16_1.png";
+import neario2 from "./assets/images/examples/neario_iphone16_2.png";
+import neario3 from "./assets/images/examples/neario_iphone16_3.png";
+import neario4 from "./assets/images/examples/neario_iphone16_4.png";
+import websplat1 from "./assets/images/examples/splat_viewer_1.jpeg";
+import websplat2 from "./assets/images/examples/splat_viewer_2.jpeg";
+import LandingScene from "./LandingScene.jsx";
 
 import "./Portfolio.css";
 
 function Hero() {
-  return (<>
-    <div className="hero-image">
+  return (
+    <>
+      <div className="hero-image">
         <div className="hero-text">
           <h1>Patrick Lee</h1>
           <figure>
@@ -59,7 +62,8 @@ function Hero() {
           </div>
         </div>
       </div>
-  </>);
+    </>
+  );
 }
 
 function App() {
@@ -72,11 +76,7 @@ function App() {
   return (
     <>
       <label id="hero-toggle">
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleToggle}
-        />
+        <input type="checkbox" checked={isChecked} onChange={handleToggle} />
         <b>3D</b>
       </label>
       {isChecked ? <LandingScene /> : <Hero />}
@@ -129,40 +129,44 @@ function App() {
         <h3>Neario</h3>
         <ul>
           <li>
-            Constructed a iOS app to quickly find restaraunts around your surroundings. 
+            Constructed a iOS app to quickly find restaraunts around your
+            surroundings.
           </li>
           <li>
-            Utilized Google Places API to fetch place name, ratings, and photos to ensure up-to-date information is provided to the user.
+            Utilized Google Places API to fetch place name, ratings, and photos
+            to ensure up-to-date information is provided to the user.
           </li>
         </ul>
-        
+
         <table>
           <tbody>
             <tr>
               <tr>
                 <tr>
                   <td>
-                <a href={nearioIcon}>
-                  <img
-                    src={nearioIcon}
-                    alt="Neario Default App Icon"
-                    style={{ width: "100%",
-                      WebkitFilter: "drop-shadow(0 0 8px #777)",
-                      filter: "drop-shadow(0 0 8px #777)"  }}
-                  />
-                </a>
-              </td>
-              </tr>
-              <tr>
-              <td>
-                <a href={nearioDarkIcon}>
-                  <img
-                    src={nearioDarkIcon}
-                    alt="Neario Dark App Icon"
-                    style={{ width: "100%"}}
-                  />
-                </a>
-              </td>
+                    <a href={nearioIcon}>
+                      <img
+                        src={nearioIcon}
+                        alt="Neario Default App Icon"
+                        style={{
+                          width: "100%",
+                          WebkitFilter: "drop-shadow(0 0 8px #777)",
+                          filter: "drop-shadow(0 0 8px #777)",
+                        }}
+                      />
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href={nearioDarkIcon}>
+                      <img
+                        src={nearioDarkIcon}
+                        alt="Neario Dark App Icon"
+                        style={{ width: "100%" }}
+                      />
+                    </a>
+                  </td>
                 </tr>
               </tr>
               <td style={{ textAlign: "center" }}>
@@ -212,9 +216,11 @@ function App() {
           <img
             src={cpuDiagram}
             alt="RISC-V Pipeline Diagram"
-            style={{ width: "50%",
+            style={{
+              width: "50%",
               WebkitFilter: "drop-shadow(0 0 4px #777)",
-              filter: "drop-shadow(0 0 4px #777)"  }}
+              filter: "drop-shadow(0 0 4px #777)",
+            }}
           />
         </a>
 
@@ -310,6 +316,38 @@ function App() {
             seamless updates.
           </li>
         </ul>
+
+        <h2>WIP</h2>
+        <h3>Gaussian Splat Renderer</h3>
+        <ul>
+          <li>
+            Currently rendering Gaussian splat scenes in .ply and .splat formats utilizing three.js.
+          </li>
+        </ul>
+        <table>
+          <tbody>
+            <tr>
+              <td style={{ textAlign: "center" }}>
+                <a href={websplat1}>
+                  <img
+                    src={websplat1}
+                    alt="Bunny with light depth 1"
+                    style={{ width: "100%" }}
+                  />
+                </a>
+              </td>
+              <td style={{ textAlign: "center" }}>
+                <a href={websplat2}>
+                  <img
+                    src={websplat2}
+                    alt="Bunny with light depth 5"
+                    style={{ width: "100%" }}
+                  />
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <footer>
         <h2>Contact</h2>
