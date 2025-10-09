@@ -317,7 +317,7 @@ function App() {
           </li>
         </ul>
 
-        <h2>WIP</h2>
+        {/* <h2>WIP</h2>
         <h3>Gaussian Splat Renderer</h3>
         <ul>
           <li>
@@ -347,7 +347,7 @@ function App() {
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> */}
       </div>
       <footer>
         <h2>Contact</h2>
