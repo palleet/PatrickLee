@@ -15,6 +15,10 @@ import neario4 from "./assets/images/examples/neario_iphone16_4.png";
 import websplat1 from "./assets/images/examples/splat_viewer_1.jpeg";
 import websplat2 from "./assets/images/examples/splat_viewer_2.jpeg";
 import LandingScene from "./LandingScene.jsx";
+import mayaSkeleton from "./assets/images/examples/maya_skeleton.png";
+import mayaBook from "./assets/images/examples/maya_book.png";
+import mayaDiner from "./assets/images/examples/maya_diner.png";
+import ffpCharacters from "./assets/images/examples/FFP_characters.png";
 
 import "./Portfolio.css";
 
@@ -348,6 +352,76 @@ function App() {
             </tr>
           </tbody>
         </table> */}
+        <h2>Fun Projects</h2>
+        <h3>Feast for Power</h3>
+        <ul>
+          <li>
+            Led a group of 4 people on a 3D animated short I pitched for UCBUGG's 2025 spring semester. 
+            I directed the short along with modeling, texturing, and animating the assets to tell a story of two adversaries who join forces to build something greater than either could alone.
+          </li>
+        </ul>
+        <table>
+          <tbody>
+            <tr>
+              <td style={{ textAlign: "center" }}>
+                <a href={ffpCharacters}>
+                  <img
+                    src={ffpCharacters}
+                    alt="Character sheet created by Judy Qu"
+                    style={{ width: "100%" }}
+                  />
+                </a>
+              </td>
+
+              <td style={{ textAlign: "center" }}>
+                <a href={mayaSkeleton}>
+                  <img
+                    src={mayaSkeleton}
+                    alt="Skeleton model"
+                    style={{ width: "50%" }}
+                  />
+                </a>
+              </td>
+              
+              
+            </tr>
+            <tr>
+              <td style={{ textAlign: "center" }}>
+                <a href={mayaBook}>
+                  <img
+                    src={mayaBook}
+                    alt="Model of Necronomnomnomicon"
+                    style={{ width: "50%" }}
+                  />
+                </a>
+              </td>
+              <td style={{ textAlign: "center" }}>
+                <a href={mayaDiner}>
+                  <img
+                    src={mayaDiner}
+                    alt="Diner set"
+                    style={{ width: "100%" }}
+                  />
+                </a>
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <iframe
+          style={{
+            aspectRatio: "16/9",
+            width: "100%",
+            height: "auto",
+            WebkitFilter: "drop-shadow(0 0 4px #777)",
+            filter: "drop-shadow(0 0 4px #777)",
+          }}
+          src='https://www.youtube.com/embed/TEHjI5vK03I?si=9ZGxx9EDpg9v5QdQ'
+          frameborder='0'
+          allow='autoplay; encrypted-media'
+          allowfullscreen
+          title='video'
+        />
       </div>
       <footer>
         <h2>Contact</h2>
